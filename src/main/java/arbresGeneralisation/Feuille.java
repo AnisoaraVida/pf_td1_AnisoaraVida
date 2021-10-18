@@ -3,21 +3,25 @@ package arbresGeneralisation;
 
 import java.util.Set;
 
-public class Feuille implements Arbre {
+public class Feuille<T> implements Arbre<T> {
+    private final T valeur;
 
+    public Feuille(T valeur) {
+        this.valeur = valeur;
+    }
 
     @Override
     public int taille() {
-        return 0;
+        return 1;
     }
 
     @Override
     public boolean contient(Object val) {
-        return false;
+        return val.equals(valeur);
     }
 
     @Override
     public Set valeurs() {
-        return null;
+        return Set.of(valeur);
     }
 }
