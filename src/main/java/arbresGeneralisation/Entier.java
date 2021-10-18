@@ -1,6 +1,6 @@
 package arbresGeneralisation;
 
-public class Entier implements Sommable<Entier>{
+public class Entier implements Sommable<Entier>, Comparable<Entier>{
 
     public Integer valeur;
 
@@ -18,4 +18,8 @@ public class Entier implements Sommable<Entier>{
         return new Entier(this.valeur + autre.valeur);
     }
 
+    @Override
+    public int compareTo(Entier entier) {
+        return 0;
+    }
 }

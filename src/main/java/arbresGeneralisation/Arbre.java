@@ -2,7 +2,7 @@ package arbresGeneralisation;
 
 import java.util.Set;
 
-public interface Arbre<T> extends Sommable<T> {
+public interface Arbre<T> extends Sommable<T>, Comparable<T> {
     int taille();
     boolean contient(T val);
     Set<T> valeurs();

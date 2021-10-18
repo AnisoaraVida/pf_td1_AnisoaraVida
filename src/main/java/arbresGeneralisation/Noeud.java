@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Noeud<T extends Arbre> implements Arbre<T>, Sommable<T>{
+public class Noeud<T extends Arbre> implements Arbre<T>, Sommable<T>, Comparable<T>{
     private final List<T> fils;
 
     public Noeud(final List<T> fils) {
@@ -57,10 +57,10 @@ public class Noeud<T extends Arbre> implements Arbre<T>, Sommable<T>{
     public T min() {
         if (fils == null || fils.size() == 0)
             return null;
-        int rtr = fils.get(0).min();
+        T rtr = (T) fils.get(0).min();
         for (int i = 1; i < fils.size(); i++) {
-            int min = fils.get(i).min();
-            if (min < rtr) {
+            T min = (T) fils.get(i).min();
+            if(min.compareTo(rtr) < 0) {
                 rtr = min;
             }
         }
@@ -71,25 +71,52 @@ public class Noeud<T extends Arbre> implements Arbre<T>, Sommable<T>{
     public T max() {
         if (fils == null || fils.size() == 0)
             return null;
-        int rtr = fils.get(0).max();
+        T rtr = (T) fils.get(0).max();
         for (int i = 1; i < fils.size(); i++) {
-            int max = fils.get(i).max();
-            if (max > rtr) {
+            T max = (T) fils.get(i).max();
+            if(max.compareTo(rtr) > 0) {
                 rtr = max;
             }
         }
         return rtr;
+
+
     }
 
     @Override
     public boolean estTrie() {
-        return false;
-    }
+            return conditionTrie1() && conditionTrie2();
+        }
 
+        private boolean conditionTrie1() {
+            boolean rtr = true;
+            for (int i = 0; i < fils.size() - 1; i++) {
+                final Arbre fi = fils.get(i);
+                if (!fi.estTrie())
+                    return false;
+            }
+            return rtr;
+        }
+
+        private boolean conditionTrie2() {
+            boolean rtr = true;
+            for (int i = 0; i < fils.size() - 1; i++) {
+                final Arbre<T> fi = fils.get(i);
+                final Arbre<T> fj = fils.get(i+1);
+                if (fi.max().compareTo(fj.min()) > 0) {
+                    return false;
+                }
+            }
+            return rtr;
+        }
 
     @Override
     public T sommer(T autre) {
         return null;
     }
 
+    @Override
+    public int compareTo(T t) {
+        return 0;
+    }
 }
