@@ -55,12 +55,30 @@ public class Noeud<T extends Arbre> implements Arbre<T>, Sommable<T>{
 
     @Override
     public T min() {
-        return null;
+        if (fils == null || fils.size() == 0)
+            return null;
+        int rtr = fils.get(0).min();
+        for (int i = 1; i < fils.size(); i++) {
+            int min = fils.get(i).min();
+            if (min < rtr) {
+                rtr = min;
+            }
+        }
+        return rtr;
     }
 
     @Override
     public T max() {
-        return null;
+        if (fils == null || fils.size() == 0)
+            return null;
+        int rtr = fils.get(0).max();
+        for (int i = 1; i < fils.size(); i++) {
+            int max = fils.get(i).max();
+            if (max > rtr) {
+                rtr = max;
+            }
+        }
+        return rtr;
     }
 
     @Override
@@ -73,5 +91,5 @@ public class Noeud<T extends Arbre> implements Arbre<T>, Sommable<T>{
     public T sommer(T autre) {
         return null;
     }
-    
+
 }
