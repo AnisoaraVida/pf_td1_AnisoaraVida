@@ -56,9 +56,4 @@ public class Feuille<T> implements Arbre<T>{
     public T sommer(T autre) {
         return null;
     }
-
-    @Override
-    public T zero() {
-        return null;
-    }
 }

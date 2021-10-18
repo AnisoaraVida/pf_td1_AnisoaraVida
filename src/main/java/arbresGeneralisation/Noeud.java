@@ -73,9 +73,5 @@ public class Noeud<T extends Arbre> implements Arbre<T>, Sommable<T>{
     public T sommer(T autre) {
         return null;
     }
-
-    @Override
-    public T zero() {
-        return null;
-    }
+    
 }

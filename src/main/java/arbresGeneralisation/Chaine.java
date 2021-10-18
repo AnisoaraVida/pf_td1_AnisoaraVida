@@ -18,8 +18,4 @@ public class Chaine implements Sommable<Chaine>{
         return new Chaine(this.valeur + autre.valeur);
     }
 
-    @Override
-    public Chaine zero() {
-        return new Chaine("");
-    }
 }

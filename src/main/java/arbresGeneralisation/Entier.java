@@ -18,9 +18,4 @@ public class Entier implements Sommable<Entier>{
         return new Entier(this.valeur + autre.valeur);
     }
 
-    @Override
-    public Entier zero() {
-        return new Entier(0);
-    }
-
 }
