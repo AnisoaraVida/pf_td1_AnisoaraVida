@@ -3,7 +3,7 @@ package arbresGeneralisation;
 
 import java.util.Set;
 
-public class Feuille<T> implements Arbre<T> {
+public class Feuille<T> implements Arbre<T>{
     private final T valeur;
 
     public Feuille(T valeur) {
