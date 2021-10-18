@@ -36,17 +36,20 @@ public class Feuille<T> implements Arbre<T>{
 
     @Override
     public T min() {
-        return null;
+        return valeur;
     }
 
     @Override
     public T max() {
-        return null;
+        return valeur;
     }
 
+    /**
+     * une feuille est toujours triée.
+     */
     @Override
     public boolean estTrie() {
-        return false;
+        return true;
     }
 
     @Override
