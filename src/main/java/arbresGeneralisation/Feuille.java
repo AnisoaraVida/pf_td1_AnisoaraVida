@@ -3,7 +3,7 @@ package arbresGeneralisation;
 
 import java.util.Set;
 
-public class Feuille<T> implements Arbre<T>{
+public class Feuille<T> implements Arbre<T>, Sommable<T>, Comparable<T>{
     private final T valeur;
 
     public Feuille(T valeur) {
@@ -55,5 +55,10 @@ public class Feuille<T> implements Arbre<T>{
     @Override
     public T sommer(T autre) {
         return null;
+    }
+
+    @Override
+    public int compareTo(T t) {
+        return 0;
     }
 }
