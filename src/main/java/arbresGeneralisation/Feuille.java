@@ -24,4 +24,9 @@ public class Feuille<T> implements Arbre<T>{
     public Set valeurs() {
         return Set.of(valeur);
     }
+
+    @Override
+    public T somme() {
+        return null;
+    }
 }

@@ -6,6 +6,7 @@
 import arbres.Arbre;
 import arbres.Feuille;
 import arbres.Noeud;
+import arbresGeneralisation.Entier;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
