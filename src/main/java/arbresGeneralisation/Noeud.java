@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Noeud<T extends Arbre> implements Arbre<T> {
+public class Noeud<T extends Arbre> implements Arbre<T>, Sommable<T>{
     private final List<T> fils;
 
     public Noeud(final List<T> fils) {
@@ -25,7 +25,9 @@ public class Noeud<T extends Arbre> implements Arbre<T> {
     public boolean contient(T val) {
         boolean rtr = false;
         for (final Arbre<T> a : fils) {
-            if (a.contient(val)) return true;
+            if (a.contient(val)){
+                return true;
+            }
         }
         return rtr;
     }
@@ -41,18 +43,24 @@ public class Noeud<T extends Arbre> implements Arbre<T> {
 
     @Override
     public T somme() {
-        if (fils == null || fils.size() == 0)
-            return null; // should it be 0 ? no because nothing to sum
-        // alternative without 0 initialization
-        // int rtr = fils.get(0).somme();
-        // for (int i = 1; i<fils.size(); i++) {
-        //     rtr += fils.get(i).somme();
-        // }
-        int rtr = 0;
-        for (Arbre<T> a : fils) {
-            rtr += a.somme();
+        if (fils == null || fils.size() == 0) {
+            return null;
+        }
+        T rtr = (T) fils.get(0).somme();
+        for (int i = 1; i< fils.size(); i++) {
+            rtr = (T) rtr.sommer(fils.get(i).somme());
         }
         return rtr;
     }
 
+
+    @Override
+    public T sommer(T autre) {
+        return null;
+    }
+
+    @Override
+    public T zero() {
+        return null;
+    }
 }
