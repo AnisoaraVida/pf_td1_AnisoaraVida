@@ -53,6 +53,21 @@ public class Noeud<T extends Arbre> implements Arbre<T>, Sommable<T>{
         return rtr;
     }
 
+    @Override
+    public T min() {
+        return null;
+    }
+
+    @Override
+    public T max() {
+        return null;
+    }
+
+    @Override
+    public boolean estTrie() {
+        return false;
+    }
+
 
     @Override
     public T sommer(T autre) {
